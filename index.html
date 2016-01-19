@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Asana Unicorn</title>
+        <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
+        <style>
+            body {background-color:white;}
+            .wrap {width:490px;margin:0 auto;}
+            .content {margin-top:15px;padding:10px;-webkit-border-radius: 12px;border-radius: 12px;background-clip: padding-box;
+                background-color: #6d695c;
+                background-image:
+                repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+                linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+                linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+                background-size: 70px 120px;
+            }
+            .content h1 {font-size:56px;font-family:'Mr De Haviland',serif;text-align:center;margin-bottom:12px;}
+            .content h2{text-align:center;color:darkorange;}
+            .content p {text-align:center;}
+            .content a {text-decoration:none;color:darkblue;}
+            .content a.bookmarklet-button{
+                border-radius:4px;
+                padding:5px 10px;
+                background:blue;
+                color:white;
+            }
+            .medium{font-size:0.8em;}
+            .little{font-size:0.6em;}
+            .attention{font-style:italic;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="content">
+                <h2>Bookmarklet for Asana</h2>
+                <p>
+                    Drag the button to your bookmark bar so you can click when you deserve a unicorn.
+                </p>
+                <p>
+                    <a class='bookmarklet-button' href='javascript:(function(c){var a,b=function(){if(c.AsanaRainbow){a=AsanaRainbow.create({name:"unicorn",image:{urls:["https://app.asana.com/-/static/apps/asana/media/unicorn-reskin.png"]}});a.start()}};if((c.AsanaRainbow===undefined)&&c.env&&c.env.dynamic_loader){env.dynamic_loader.load({url:CommonUrl.staticUrl({path:"apps/asana/view/asana_rainbow.js",compute_hash:!1}),allow_cached:!1,callback:b})}else{b()}}(window));'>I want my unicorn!</a>
+                <br>
+                <br>
+                <small>version 2.0</small>
+                </p>
+                <div style="text-align:center;">
+                    <a class="code-toggler" data-pair="unicorn_code" href="#toggle">Toggle code</a>
+                    <div style="display:none;text-align:left;margin-top:10px;" id="unicorn_code">
+                        <script src="https://gist.github.com/jcottrell/832e3a391bf96d64e454.js"></script>
+                    </div>
+                </div>
+                <p class="medium attention">
+                Notice: Not responsible for lack or productivity or inadvertant changes to Asana when using this bookmarklet.
+                </p>
+            </div>
+        </div>
+        <script>
+            (function (doc) {
+                var toggler = Array.prototype.slice.call(doc.querySelectorAll('.code-toggler'));
+                toggler.forEach(function (el, i, ar) {
+                    var codeId = el.getAttribute('data-pair'),
+                    code = doc.getElementById(codeId);
+                    el.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        code.style.display = (code.style.display.toLowerCase() === 'none') ? 'block' : 'none';
+                    }, false);
+                });
+            }(document));
+        </script>
+    </body>
+</html>
