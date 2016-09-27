@@ -18,8 +18,8 @@
             }
         },
         loadCelebrants = function () {
-            if (AsanaRainbow._RESKIN_CELEBRATIONS) {
-                celebrants = AsanaRainbow._RESKIN_CELEBRATIONS;
+            if (AsanaRainbow._ALL_CELEBRATIONS) {
+                celebrants = AsanaRainbow._ALL_CELEBRATIONS;
             }
         };
     if ((win.AsanaRainbow === undefined) && win.env && win.env.dynamic_loader) {
